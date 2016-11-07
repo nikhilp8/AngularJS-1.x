@@ -1,0 +1,48 @@
+we need only one script file for angular
+Need to add ng-app attribute in our HTML. It is a directive (one of many angular provides) Angular initiates itself after seeing ng-app. It takes control of the DOM from wherever its aded. There can be only one ng-app
+
+{{ }} moustaches/handlebars/binding expressions
+Angular evaluates the expressions within these curly braces
+
+Controller:
+	controls part of an application.They build a model and using data binding we display that model in a view
+	Will use it by this attribute <div ng-attribute = "MainController">
+	The MainController is a function which controls part of the HTML associated with it & it is invoked by Angular. We provide the model/data within that function.
+	var MainController = function($scope){
+		$scope.message = "Hi"
+	} // The message is available to us & can be data binded & displayed in view. It basically sets up our model in scope object
+
+$http service:
+	If I need to retrieve information from a webserver, I can use this service to fetch information I dont have yet. It's basically an object with methods as properties I can use. It's method names are named after GET,POST,PUT,DELETE
+	var MainController = function($scope, $http){
+		$scope.message = "Hi";
+		$scope.user = $http.get('/user/123');
+		//now this is asynchronous so we do not get the response immediately.So we use promises
+
+		var promise = $http.get('/user/123'); // promise is an empty object right now which promises to return data in the future
+		promise.then(function(response){
+			$scope.user =  response.data;
+		})
+
+		//or can be used in a single step
+		$http.get('user/123').then(function(response){
+			$scope.user = response.data;
+		})
+	} 
+
+Modules:
+	Place all controllers inside the module. It's basically 3 steps
+	1. create a module 	// var app = angular.module("GithubViewer",[]);
+	2. register the components with module // var MainController = function(){}
+		app.controller('MainController', MainController);
+	3. Tell angular the module using	// ng-app = 'GitHubViewer'
+
+Directives:
+	Directives allow for indirect view and model interaction. If anything changes in the view, we have directives so that it gets reflected in the model also
+		ng-model="userName"	//added in view, this directive adds userName property to $scope object. Can be used for input, select, ...
+		ng-click = "function()"	execute a function on clicking. Define the function in respective controller
+		ng-submit = "function()"	just like ng-click, but this can be placed in the form tag itself
+		ng-repeat="x in propertyOfScope" just like a for loop
+	filters:
+		can be used  by placing | filterName:extrafeatures ...like |number:2 gives numbers with 2 decimal places. Similarly can be used for properties on scope object
+	ng-show="propertyofScope" by giving it a truthy value the content will be shown in that respective tag, else it wont display unless that property exists in scope object. Vice versa for ng-hide
