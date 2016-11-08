@@ -46,3 +46,29 @@ Directives:
 	filters:
 		can be used  by placing | filterName:extrafeatures ...like |number:2 gives numbers with 2 decimal places. Similarly can be used for properties on scope object
 	ng-show="propertyofScope" by giving it a truthy value the content will be shown in that respective tag, else it wont display unless that property exists in scope object. Vice versa for ng-hide
+	ng-include=" 'fileName.html' " adds the filename into the existing file.If you want to seperate the code into specific files
+Services: It's like a component doing a certain job. Views consume the model with
+	directives.Services can be used by anywhere in the app. You just put logic into it & use it. If there's too much code in controllers and need to be refactored, we can use custom services and seperate the concerns.
+	They can be used for 
+	1. adding logic for communicating over http
+	2. writing algorithm to find has of a string
+	3. writing code to do validation checks
+	4. write code to talk to local storage or manage cookies sent from server.
+	Many more like this....
+
+	Services can be used within the custom directives also.
+	One other service is $log // It is used for debugging and diagnosis
+
+	We wanted to see the changes reflected in view/ model to be reflected vice-versa. But what if we
+	1. need to a new URL
+	2. Show dialog box
+	3. Force input before taking certain actions. There are services which provide these kind of functionality
+
+	$location	// used to id particular tag & reflect that in URL // $location.hash("idName")
+	$anchorScroll()	// moves our cursor to respective Id area in our page
+
+Custom Services
+	Main reason to have it is to create
+	1. Reusable logic		// can be used anywhere in the application
+	2. Store shared data	// one service for all controllers, sharing data helps
+	3. Manage complexity	// seperation of responsibilities

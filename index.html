@@ -5,17 +5,19 @@
   <script data-require="angular.js@1.3.0-beta.5" data-semver="1.3.0-beta.5" src="https://code.angularjs.org/1.3.0-beta.5/angular.js"></script>
   <link rel="stylesheet" href="style.css" />
   <script src="script.js"></script>
+  <script src="github.js"></script>
 </head>
 
 <body ng-controller=MainController>
-  <h1>{{message}}</h1>
-
+  <h1>{{message}}</h1> {{countDown}}
   <br>
-  <form ng-submit="search(userName)">
-    <input type="search" required placeholder="userName" ng-model="userName" />
-    <input type="submit" />
+  <div id="userDetails">
+    <form name="searchUser" ng-submit="search(userName)">
+      <input type="search" required ng-model="userName" />
+      <input type="submit" value="Search" />
 
-  </form>
+    </form>
+  </div>
 
 
   <b>{{user.login}}</b>
