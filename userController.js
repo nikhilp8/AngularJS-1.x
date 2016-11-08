@@ -1,7 +1,7 @@
 // Code goes here
 (function() {
 
-  var app = angular.module("GitHubViewer", []);
+  var app = angular.module("GitHubViewer");
 
   var MainController = function($scope,$interval,$anchorScroll,$location,github) {
     $scope.message = "Github Viewer";

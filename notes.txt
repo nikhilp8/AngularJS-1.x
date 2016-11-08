@@ -72,3 +72,5 @@ Custom Services
 	1. Reusable logic		// can be used anywhere in the application
 	2. Store shared data	// one service for all controllers, sharing data helps
 	3. Manage complexity	// seperation of responsibilities
+Routing:
+	Allows us to maintain multiple views in an application.Can pass parameters between controllers to manage these views.Can add forward/back buttons, so the browser history is in sync with user application
