@@ -7,6 +7,10 @@
         templateUrl:"main.html",
         controller:"MainController"
       })
+      .when("/user/:username",{
+        templateUrl:"user.html",
+        controller:"userController"
+      })
       .otherwise({redirectTo:"/main"})
     });
       

@@ -11,6 +11,7 @@
         $interval.cancel(count);
         $scope.countDown = null;
       }
+      $location.path("/user/"+name);
 
     };
     var decrementCount = function() {
